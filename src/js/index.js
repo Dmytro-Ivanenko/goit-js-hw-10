@@ -35,6 +35,7 @@ function renderCountries(countriesArr) {
 const onInput = e => {
   if (refs.search.value.trim() === '') {
     refs.countryInfo.innerHTML = '';
+    refs.countryList.innerHTML = '';
     return;
   } else {
     fetchCountries(refs.search.value.trim())
