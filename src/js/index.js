@@ -10,6 +10,7 @@ const DEBOUNCE_DELAY = 300;
 const refs = {
   search: document.querySelector('#search-box'),
   countryInfo: document.querySelector('.country-info'),
+  countryList: document.querySelector('.country-list'),
 };
 
 // functions
@@ -19,10 +20,13 @@ function renderCountries(countriesArr) {
     // alert('Too many matches found. Please enter a more specific name.');
     Notify.info('Too many matches found. Please enter a more specific name.', {
       timeout: 6000,
+      position: 'center-top',
     });
   } else if (countriesArr.length >= 2 && countriesArr.length <= 10) {
-    refs.countryInfo.innerHTML = countryList(countriesArr);
+    refs.countryInfo.innerHTML = '';
+    refs.countryList.innerHTML = countryList(countriesArr);
   } else {
+    refs.countryList.innerHTML = '';
     refs.countryInfo.innerHTML = countryFullInfo(countriesArr);
   }
 }
@@ -40,6 +44,7 @@ const onInput = e => {
       .catch(error => {
         Notify.failure('Oops, there is no country with that name', {
           timeout: 6000,
+          position: 'center-top',
         });
       });
   }

@@ -1,7 +1,7 @@
 function countryList(countryArr) {
   return countryArr
     .map(({ name, flags }) => {
-      return `<ul class = "country-items"><li class = "country-item"><img src=${flags.svg} alt="flag of ${name.official}" height = "100px"><p>${name.official}</p></li></ul>`;
+      return `<li class = "country-item"><img src=${flags.svg} alt="flag of ${name.official}" height = "100px"><p>${name.official}</p></li>`;
     })
     .join('');
 }
