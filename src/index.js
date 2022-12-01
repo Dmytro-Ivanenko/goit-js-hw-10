@@ -35,4 +35,4 @@ const onInput = e => {
   }
 };
 
-refs.search.addEventListener('input', debounce(onInput, 300));
+refs.search.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
